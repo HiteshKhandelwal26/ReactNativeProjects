@@ -5,7 +5,7 @@ export default function FlatCards() {
   return (
 
     <View>
-      <Text style = {styles.headingText}>Fixed Cards</Text>
+      <Text style = {styles.headingText}>Fixed Carding</Text>
       
       <View style ={styles.container}>
         <View style ={[styles.cardOne, styles.card]}>
