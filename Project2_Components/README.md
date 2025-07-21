@@ -15,9 +15,6 @@ This project has been created as part of my learning journey into React Native. 
 > Modular Components (under the components/ folder):
 🟦 Flat Cards: Simple static cards without scroll behavior
 🟨 Horizontal ScrollView with Elevated Cards: Cards presented in a horizontally scrollable view with elevation effects
-🟪 Fancy Cards: Styling cards with images and enhanced layout aesthetics
-  1. Styling cards
-  2. Deeplinking and touchable opacity to cards
-  3. Making beautiful buttons
-  4. Iteration UI
-  5. 
+🟪 Fancy Cards: Styling and creating cards with images and enhanced layout aesthetics
+🟦 Action Cards: Involves loading of a web browser through Linking.OpenURL() component. How Pressable component works to invoke the click event.
+   
