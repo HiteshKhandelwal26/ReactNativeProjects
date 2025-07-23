@@ -1,6 +1,6 @@
 ## 👋 Hello, I'm Hitesh Khandelwal
 
-I'm an Android & React Native Developer passionate about crafting high-quality mobile apps.  
+I'm an ***Android & React Native Developer*** passionate about crafting high-quality mobile apps.  
 This repository contains a collection of projects I've built as part of my journey into React Native.
 
 ## 📚 Projects Included
