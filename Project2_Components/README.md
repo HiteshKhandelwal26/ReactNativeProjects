@@ -34,8 +34,8 @@ Demonstrates how to create a WhatsApp chat design style.
 
 ## Screenshots
 
-### 📱 WhatsApp design style Screen + Action Cards(clickable event)
-![WhatsApp chat design style](./screenshots/screenshot1.png)
+<h3>📱 WhatsApp design style Screen + Action Cards(clickable event) </h3>
+<img src="./screenshots/screenshot1.png" alt="Home Screen" width="300"/>
 
-### 🎨 Fancy Cards(Fixed and Scrollable)
-![Contact Card](./screenshots/screenshot2.png)
+<h3>🎨 Fancy Cards(Fixed and Scrollable)</h3>
+<img src="./screenshots/screenshot2.png" alt="Contact Card" width="300"/>
