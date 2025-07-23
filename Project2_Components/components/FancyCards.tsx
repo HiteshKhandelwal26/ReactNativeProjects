@@ -30,11 +30,10 @@ const styles = StyleSheet.create({
     },
 
     headingText:{
-      fontSize: 20,
-    
-      paddingHorizontal: 8,
-      fontWeight:"bold",
-    
+        fontSize:20,
+        marginStart: 5,
+        marginTop: 5,
+        fontWeight:"bold"
     },
     cardElevated:{
       

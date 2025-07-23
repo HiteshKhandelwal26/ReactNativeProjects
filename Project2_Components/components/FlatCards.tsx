@@ -5,7 +5,7 @@ export default function FlatCards() {
   return (
 
     <View>
-      <Text style = {styles.headingText}>Fixed Carding</Text>
+      <Text style = {styles.headingText}>Fixed Cards</Text>
       
       <View style ={styles.container}>
         <View style ={[styles.cardOne, styles.card]}>
@@ -28,8 +28,9 @@ export default function FlatCards() {
 
 const styles = StyleSheet.create({
     headingText:{
-        fontSize:24,
-        padding: 10,
+        fontSize:20,
+        marginStart: 10,
+        marginTop: 10,
         fontWeight:"bold"
     }, 
     container:{

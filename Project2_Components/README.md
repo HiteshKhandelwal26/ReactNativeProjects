@@ -27,4 +27,15 @@ Modular Components (located under the components/ folder):
 
 🟪 Fancy Cards: Styling and creating cards with images and enhanced layout aesthetics.
 
-🟦 Action Cards: Demonstrates use of Linking.openURL() to open web pages and how the Pressable component triggers click events.
+🟦 Action Cards: Demonstrates use of Linking.openURL() to open web pages and how the Pressable component triggers click events. Also how we can make them look like a beautiful buttons as well.
+
+🟦 Itiration UI Cards: Demonstrates how we can Iterate UI in react native using an static array list. How the data can be fetched and update the UI from the array list.
+Demonstrates how to create a WhatsApp chat design style.
+
+## Screenshots
+
+### 📱 WhatsApp design style Screen + Action Cards(clickable event)
+![WhatsApp chat design style](./screenshots/screenshot1.png)
+
+### 🎨 Fancy Cards(Fixed and Scrollable)
+![Contact Card](./screenshots/screenshot2.png)

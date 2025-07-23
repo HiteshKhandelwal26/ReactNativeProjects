@@ -8,7 +8,7 @@ export default function ActionCards() {
   }
   return (
     <View>
-      <Text style={styles.headingText}>ActionCards</Text>
+      <Text style={styles.headingText}>Action Cards</Text>
       <View style = {styles.container}>
          <Image style={styles.imageStyle}
                 source={{
@@ -16,15 +16,18 @@ export default function ActionCards() {
                 }} 
                 />
         <View style={styles.contentBody}>
-        <Text style={styles.ImgTittle}>Actionable card</Text>
+        <Text style={styles.ImgTittle}>This is an Actionable card</Text>
         <Text style={styles.ImgDes}>Please tap on the bottom text to launch new browser from the app.</Text>
         
-        <Pressable style={styles.pressable} onPress={() => openWebLink('https://reactnative.dev')}>
-        <Text style= {styles.clickImage}>ReadMore</Text> 
-
+        <View style={styles.urlContainer}>
+          <Pressable style={styles.pressable} onPress={() => openWebLink('https://reactnative.dev')}>
+        <Text style= {styles.clickImage}>Read More</Text> 
         </Pressable>
-      
-       
+         <Pressable style={styles.pressable} onPress={() => openWebLink('https://google.com')}>
+        <Text style= {styles.clickImage}>Follow Me</Text> 
+        </Pressable>
+       </View>
+
       </View>
 
       </View>
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
       marginTop: 10
   },
   container: {
-    flex: 1,
+    
     marginTop: 5,
     marginHorizontal: 5,
     marginVertical: 5,
@@ -59,15 +62,32 @@ const styles = StyleSheet.create({
     },
 
     contentBody:{},
-    ImgTittle:{},
-    ImgDes:{},
+    ImgTittle:{
+      color: "#ffffff",
+      fontSize: 17,
+      fontWeight:"bold"
+    
+    },
+    ImgDes:{
+      color: "#ffffff"
+    },
     clickImage:{
       color: "#50DBB4",
       fontWeight: "bold",
-      fontSize: 16
+      fontSize: 14
     },
     pressable:{
-      padding: 8
+      margin: 0,
+      backgroundColor: "#ffffff",
+      padding: 5,
+      borderRadius: 5
+    },
+    urlContainer:{
+      marginHorizontal: 5,
+      marginVertical:5,
+      flexDirection: "row-reverse",
+      alignItems: "center",
+      justifyContent:"space-evenly"
     }
 
 })
