@@ -13,9 +13,9 @@ function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Hitesh</Text>
+      <Text>Hitesh Khandelwal</Text>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx " />
+      <NewAppScreen templateFileName="App.tsx" />
     </View>
   );
 }
