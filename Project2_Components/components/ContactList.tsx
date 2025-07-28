@@ -133,9 +133,6 @@ const style = StyleSheet.create(
             justifyContent: "space-between",
             alignItems: "flex-start",
         },
-
-
-
         timeContainer: {
             color: "#ffffff",
             fontWeight: "bold",
