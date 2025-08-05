@@ -1,8 +1,8 @@
 import React, { JSX, useState } from "react";
-
-import { View, Text, StyleSheet } from "react-native"
+import { Formik } from "formik"
+import { View, TextInput, Text, StyleSheet, ScrollView, SafeAreaView, Pressable } from "react-native"
 import * as Yup from 'yup'
-
+import BouncyCheckbox from "react-native-bouncy-checkbox"
 
 // NumberValidation is basically used to call yup package to validate of type number with min, max along
 // with the error msg we want to dispaly
@@ -15,8 +15,6 @@ const NumberValidation = Yup.object().shape(
   }
 )
 
-
-
 function App(): JSX.Element {
 
   // creating the useStates which can later be used to update the state of the variables whenever the state changes
@@ -26,36 +24,36 @@ function App(): JSX.Element {
   const [isPassGenerated, setPassGenerated] = useState(false)
   const [lowerCase, setLowerCase] = useState(true)
   const [upperCase, setUpperCase] = useState(false)
-  const [numbers, useNumbers] = useState(false)
+  const [numbers, setNumbers] = useState(false)
   const [symbols, setSymbols] = useState(false)
 
   //
-  const generatePassordString = (passwordLenth: number) => {
+  const generatePassordString = (passwordLength: number) => {
 
     let characterList = ''
 
-    const UpperCase = 'ABCDEFGHIJKLMNOPQRSTVWXYZ'
-    const LowerCase = 'abcdefghijklmnopqrstuvwxyz'
-    const digitCase = "1234567890"
-    const specialCase = '!@#$%^&*()_+'
+    const UpperCaseChars = 'ABCDEFGHIJKLMNOPQRSTVWXYZ'
+    const LowerCaseChars = 'abcdefghijklmnopqrstuvwxyz'
+    const digitCaseChars = "1234567890"
+    const specialCaseChars = '!@#$%^&*()_+'
 
     if (upperCase) {
-      characterList += upperCase
+      characterList += UpperCaseChars
     }
 
     if (lowerCase) {
-      characterList += lowerCase
+      characterList += LowerCaseChars
     }
 
     if (numbers) {
-      characterList += numbers
+      characterList += digitCaseChars
     }
 
     if (symbols) {
-      characterList += symbols
+      characterList += specialCaseChars
     }
 
-    const passwordResult = createPassword(characterList, passwordLenth)
+    const passwordResult = createPassword(characterList, passwordLength)
     setPassword(passwordResult)
     setPassGenerated(true)
 
@@ -85,17 +83,110 @@ function App(): JSX.Element {
 
   // reseting the password state
   const resetPassword = () => {
-      setPassword('')
-      setLowerCase(true)
-      setUpperCase(false)
-      useNumbers(false)
-      setSymbols(false)
-      setPassGenerated(false)
+    setPassword('')
+    setLowerCase(true)
+    setUpperCase(false)
+    setNumbers(false)
+    setSymbols(false)
+    setPassGenerated(false)
   }
 
 
   return (
-    <View style={styles.InnerText}></View>
+    <View style={styles.InnerText}>
+
+      <ScrollView keyboardShouldPersistTaps="handled">
+
+        <SafeAreaView style={styles.appContainer}>
+
+          <View style={styles.formContainer}>
+
+            <Text style={styles.textContainer}>Password Generator</Text>
+
+            <Formik
+              initialValues={{ passwordLength: '' }}
+              validationSchema={NumberValidation}
+              onSubmit={(values) => {
+                console.log(values)
+                generatePassordString(+values.passwordLength)
+              }}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                isValid,
+                handleSubmit,
+                handleReset,
+
+              }) => (
+                <>
+                  <View style={styles.viewHolder}>
+                    <View style={styles.inputWrapper}>
+                      <Text style={styles.leftItem}>Passoword Length: </Text>
+                      {(touched.passwordLength && errors.passwordLength && (
+                        <Text>{errors.passwordLength}</Text>
+                      ))}
+
+                    </View>
+                    <TextInput
+                      value={values.passwordLength}
+                      onChangeText={handleChange('passwordLength')}
+                      placeholder="Ex. 8"
+                      keyboardType='numeric' />
+                    <View style={styles.inputWrapper}>
+                      <Text style={styles.leftItem}>Include LowerCase:</Text>
+                      <BouncyCheckbox style={styles.rightItem}
+                        isChecked={lowerCase}
+                        onPress={() => setLowerCase(!lowerCase)}
+                        fillColor="#29AB87"
+                      />
+                    </View>
+
+                    <View style={styles.inputWrapper}>
+                      <Text style={styles.leftItem}>Include UpperCase: </Text>
+                      <BouncyCheckbox style={styles.rightItem}
+                        isChecked={upperCase}
+                        onPress={() => setUpperCase(!upperCase)}
+                        fillColor="#FC80A5"
+                      />
+                    </View>
+
+                    <View style={styles.inputWrapper}>
+                      <Text style={styles.leftItem}>Include Symbols : </Text>
+                      <BouncyCheckbox style={styles.rightItem}
+                        isChecked={symbols}
+                        onPress={() => setSymbols(!symbols)}
+                        fillColor="#C9A0DC"
+                      />
+                    </View>
+
+                    <View style={styles.inputWrapper}>
+                      <Text style={styles.leftItem}>Include Numbers: </Text>
+                      <BouncyCheckbox style={styles.rightItem}
+                        isChecked={numbers}
+                        onPress={() => setNumbers(!numbers)}
+                        fillColor="#FED85D"
+                      />
+                    </View>
+                  </View>
+                  <View style={styles.formActions}></View>
+                  <Pressable>
+                    <Text>Generate Password </Text></Pressable>
+                  <Pressable>
+                    <Text>Reset Password </Text>
+                  </Pressable>
+
+                </>
+              )}
+            </Formik>
+          </View>
+
+        </SafeAreaView>
+      </ScrollView>
+
+    </View>
   )
 }
 
@@ -106,6 +197,53 @@ export default App
 
 const styles = StyleSheet.create(
   {
+
+    appContainer: {
+
+    },
+    formContainer: {
+
+    },
+
+    textContainer: {
+      fontWeight: "bold",
+      padding: 10,
+      fontSize: 25,
+      fontStyle: "normal"
+    },
+    viewHolder: {
+      flex: 1,
+      paddingHorizontal: 16,
+      justifyContent: "flex-start", // vertical stacking
+      alignItems: "stretch",        // important for full width rows
+    },
+    inputWrapper: {
+      flexDirection: "row",
+      justifyContent: "space-between", // one item to left, one to right
+      alignItems: "center",
+      marginVertical: 8,
+    },
+    leftItem: {
+      textAlign: "left",
+      flex: 1,
+    },
+
+    rightItem: {
+      textAlign: "right",
+      flex: 1,
+    },
+    inputColumn: {
+
+
+    },
+
+    formActions: {
+
+    },
+    textInput: {
+
+    },
+
     InnerText: {
 
     }
