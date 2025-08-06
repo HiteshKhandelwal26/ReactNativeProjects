@@ -1,6 +1,6 @@
 import React, { JSX, useState } from "react";
 import { Formik } from "formik"
-import { View, TextInput, Text, StyleSheet, ScrollView, SafeAreaView, Pressable } from "react-native"
+import { View, TextInput, Text, StyleSheet, ScrollView, SafeAreaView, Pressable, Linking, TouchableOpacity } from "react-native"
 import * as Yup from 'yup'
 import BouncyCheckbox from "react-native-bouncy-checkbox"
 
@@ -91,6 +91,9 @@ function App(): JSX.Element {
     setPassGenerated(false)
   }
 
+  function loadULR() {
+    Linking.openURL("https://www.google.com")
+  }
 
   return (
     <View style={styles.InnerText}>
@@ -172,15 +175,41 @@ function App(): JSX.Element {
                     </View>
                   </View>
                   <View style={styles.formActions}></View>
-                  <Pressable>
-                    <Text>Generate Password </Text></Pressable>
-                  <Pressable>
-                    <Text>Reset Password </Text>
+                  <Pressable
+                    disabled={!isValid}
+                    onPress={() => handleSubmit}>
+                    <Text style={[styles.button, styles.buttonText]}>Generate Passwords</Text>
+                  </Pressable>
+
+                  <Pressable
+                    disabled={!isValid}
+                    onPress={() => handleSubmit}
+                    style={({ pressed }) => [
+                      styles.button,
+                      pressed && styles.buttonPressed, // style when pressed
+                      !isValid && styles.disabledButton // optional: style when disabled
+                    ]}
+                  >
+                    <Text style={styles.buttonText}>Generate Passwords</Text>
+                  </Pressable>
+
+
+
+
+
+
+
+
+                  <Pressable
+                    onPress={() => { handleReset(), resetPassword }}
+                  >
+                    <Text style={[styles.button, styles.buttonText]}>Reset Password </Text>
                   </Pressable>
 
                 </>
               )}
             </Formik>
+
           </View>
 
         </SafeAreaView>
@@ -246,6 +275,34 @@ const styles = StyleSheet.create(
 
     InnerText: {
 
-    }
+    },
+    textStyle: {
+      fontWeight: "bold",
+      fontSize: 20,
+      justifyContent: "center",
+      alignContent: "center",
+      flex: 1,
+    },
+    button: {
+      backgroundColor: '#007bff',
+      paddingVertical: 12,
+      paddingHorizontal: 20,
+      borderRadius: 8,
+      marginStart: 12,
+      marginEnd: 12,
+      marginTop: 5
+    },
+    buttonText: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: "center"
+    },
+
+    buttonPressed: {
+      backgroundColor: '#45A049', // Slightly darker for pressed state
+    },
+    disabledButton: {
+      backgroundColor: '#ccc', // Gray out when disabled
+    },
   }
 )
