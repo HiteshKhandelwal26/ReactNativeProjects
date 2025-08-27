@@ -18,4 +18,10 @@ This project demonstrates the implementation of a fully functional password gene
 -- Yup for input and password validation.
 -- React’s useState() hook for managing and updating UI state.
 -- A custom function to generate a random password string based on user-selected criteria.
+-- Lot of 3rd party libraries used(npm packages)a. Usage of Yup package to set the password validatb. Usage of useState() to set and update the status of any statec. Function to create and generate the password string from random charactersd. 
+-- Formik packagee. 
+-- Bouncycheckbox
 
+Here is a screenshot:
+
+![App Screenshot](images/passwordGen.png)
