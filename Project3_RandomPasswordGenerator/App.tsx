@@ -193,13 +193,6 @@ function App(): JSX.Element {
                     <Text style={styles.buttonText}>Generate Passwords</Text>
                   </Pressable>
 
-
-
-
-
-
-
-
                   <Pressable
                     onPress={() => { handleReset(), resetPassword }}
                   >
@@ -209,9 +202,12 @@ function App(): JSX.Element {
                 </>
               )}
             </Formik>
-
           </View>
 
+          {isPassGenerated ? (
+            <View><Text style= {styles.textStyle}>Test data Hitesh</Text></View>
+
+          ) :null}
         </SafeAreaView>
       </ScrollView>
 
@@ -278,10 +274,11 @@ const styles = StyleSheet.create(
     },
     textStyle: {
       fontWeight: "bold",
-      fontSize: 20,
+      fontSize: 47,
       justifyContent: "center",
       alignContent: "center",
       flex: 1,
+      color: "#007bff"
     },
     button: {
       backgroundColor: '#007bff',
