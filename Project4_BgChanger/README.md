@@ -11,6 +11,10 @@ This project demonstrates a fully functional random background color generator. 
 ✅ Used React Native components like Pressable, View, Text, along with StyleSheet for styling the app.
 
 
-Here is a screenshot:
-![App Screenshot](images/screenshot1.png) ![App Screenshot](images/screenshot2.png) ![App Screenshot](images/screenshot3.png)
+Here are some screenshots:
+### Random Color Generated
+| Screenshot 1 | Screenshot 2 | Screenshot 3 |
+|--------------|--------------|--------------|
+| ![Home Screen](images/screenshot1.png) | ![Random Color](images/screenshot2.png) | ![Button Pressed](images/screenshot3.png) |
+
 
