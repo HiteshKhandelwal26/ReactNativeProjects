@@ -13,7 +13,7 @@ This project demonstrates a fully functional random background color generator. 
 
 Here are some screenshots:
 ### Random Color Generated
-| Screenshot 1 | Screenshot 2 | Screenshot 3 |
+| Home Screen | Random Color | Button Pressed|
 |--------------|--------------|--------------|
 | ![Home Screen](images/screenshot1.png) | ![Random Color](images/screenshot2.png) | ![Button Pressed](images/screenshot3.png) |
 

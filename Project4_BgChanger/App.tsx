@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, StatusBar, Pressable, Linking } from "react-native"
+import { View, Text, StyleSheet, StatusBar, Pressable, Linking, Image } from "react-native"
 
 import React, { useState } from "react"
+
 
 const App = () => {
 
@@ -25,11 +26,11 @@ const App = () => {
   }
 
   const resetBGColor = () => {
-
+      setBackground("#FFFFFF")
   }
   return (
     <>
-      <StatusBar backgroundColor={"#000000"} />
+        <StatusBar backgroundColor={"#000000"} />
       <View style={[myStyles.mainContainer, { backgroundColor: randomBackgroundColor }]}>
 
         <Text style = {myStyles.headingText}>Generate the random App Background color-</Text>
@@ -41,6 +42,13 @@ const App = () => {
           </View>
         </Pressable>
 
+      <Pressable onPress={() =>resetBGColor()}>
+      <View>
+      <Text>
+        Rest color
+      </Text>
+      </View>
+      </Pressable>
       </View>
 
     </>
