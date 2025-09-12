@@ -16,7 +16,7 @@ Key Highlights & Learnings:
 
 
 Here are some screenshots:
-### Random Number Generated 
+### Random Number Generated
+| Default Number | Random Number | Button Pressed|
 |--------------|--------------|--------------|
-| !(images/D1.png) | !(images/D5.png) | !(images/D6.png) |
-
+| ![Home Screen](images/D1.png) | ![Random Color](images/D5.png) | ![Button Pressed](images/D6.png) |
