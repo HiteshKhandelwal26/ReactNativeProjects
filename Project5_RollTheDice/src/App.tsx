@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text, ImageSourcePropType, Image, Pressable, Linking } from "react-native"
 import React, { useState } from "react";
 import type { JSX, PropsWithChildren } from "react";
-
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import DiceOne from "../assets/One.png";
 import DiceTwo from "../assets/Two.png";
 import DiceThree from "../assets/Three.png";
@@ -17,56 +17,71 @@ type DiceProps = PropsWithChildren<{
   imageURL: ImageSourcePropType
 }>
 
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: false,
+};
+
 const Dice = ({ imageURL }: DiceProps): JSX.Element => {
   return (
     <View>
-      <Image source={imageURL} style={styles.diceImage}/>
+      <Image source={imageURL} style={styles.diceImage} />
     </View>
   )
 }
 const App = () => {
   //appending <ImageSourcePropType> after useState will also ensures that we pass the source as Image Type only
   const [diceImage, setDiceImage] = useState<ImageSourcePropType>(DiceOne)
-  
-  const openPage = () =>{
-    Linking.openURL("https://www.google.com")
+
+  const loadDiceImage = () => {
+    let randomNumber = Math.floor(Math.random() * 6) + 1
+    switch (randomNumber) {
+      case 1:
+        setDiceImage(DiceOne)
+        break;
+      case 2:
+        setDiceImage(DiceTwo)
+        break;
+      case 3:
+        setDiceImage(DiceThree)
+        break;
+      case 4:
+        setDiceImage(DiceFour)
+        break;
+      case 5:
+        setDiceImage(DiceFive)
+        break;
+      case 6:
+        setDiceImage(DiceSix)
+        break;
+      default:
+        setDiceImage(DiceOne)
+        break;
+    }
+    // Trigger haptic feedback
+    ReactNativeHapticFeedback.trigger("impactLight", options);
   }
-  const loadDiceImage = () =>{
-      let randomNumber = Math.floor(Math.random() * 6) + 1
-      switch (randomNumber) {
-        case 1:
-          setDiceImage(DiceOne)
-          break;
-        case 2:
-          setDiceImage(DiceTwo)
-          break;
-        case 3:
-          setDiceImage(DiceThree)
-          break;
-        case 4: 
-          setDiceImage(DiceFour)
-          break;
-        case 5:
-          setDiceImage(DiceFive)
-          break;
-         case 6:
-          setDiceImage(DiceSix)
-          break;
-        default:
-           setDiceImage(DiceOne)
-          break;
-      }
-  }
-  
+
 
   return (
-    
-    <View style= {styles.container}>
-      
+    <View style={styles.container}>
       <Dice imageURL={diceImage}></Dice>
+     
+
       <Pressable onPress={loadDiceImage}>
-      <Text style = {styles.rollDiceBtnText}>Roll The Dice </Text>
+        {({ pressed }) => (
+          <Text
+            style={[
+              styles.rollDiceBtnText,
+              { color: pressed ? "red" : "black" } // red while pressed, black otherwise
+            ]}
+          >
+            Roll The Dice
+          </Text>
+        )}
       </Pressable>
+
+
     </View>
   )
 
