@@ -30,7 +30,7 @@ const App = () => {
   }
   return (
     <>
-        <StatusBar backgroundColor={"#000000"} />
+      <StatusBar backgroundColor={"#000000"} />
       <View style={[myStyles.mainContainer, { backgroundColor: randomBackgroundColor }]}>
 
         <Text style = {myStyles.headingText}>Generate the random App Background color-</Text>
@@ -44,7 +44,7 @@ const App = () => {
 
       <Pressable onPress={() =>resetBGColor()}>
       <View>
-      <Text>
+      <Text style={myStyles.innerBtnTxtView}>
         Rest color
       </Text>
       </View>

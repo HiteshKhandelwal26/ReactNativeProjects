@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, ImageSourcePropType, Image, Pressable, Linking } from "react-native"
+import { View, StyleSheet, Text, ImageSourcePropType, Image, Pressable, Linking, useColorScheme } from "react-native"
 import React, { useState } from "react";
 import type { JSX, PropsWithChildren } from "react";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
@@ -17,6 +17,11 @@ type DiceProps = PropsWithChildren<{
   imageURL: ImageSourcePropType
 }>
 
+const myColor = useColorScheme() 
+const myArr = [
+  {uid:1},{uid:2},{uid:3}
+]
+
 const options = {
   enableVibrateFallback: true,
   ignoreAndroidSystemSettings: false,
@@ -24,7 +29,11 @@ const options = {
 
 const Dice = ({ imageURL }: DiceProps): JSX.Element => {
   return (
-    <View>
+    <View style = {[myColor==="dark"? styles.container :styles.container]}>
+
+      {myArr.map(({uid}) =>(
+        <View key={uid}></View>
+      ))}
       <Image source={imageURL} style={styles.diceImage} />
     </View>
   )
