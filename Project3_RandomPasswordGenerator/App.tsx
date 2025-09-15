@@ -199,15 +199,20 @@ function App(): JSX.Element {
                     <Text style={[styles.button, styles.buttonText]}>Reset Password </Text>
                   </Pressable>
 
+              
                 </>
               )}
+
             </Formik>
           </View>
 
           {isPassGenerated ? (
-            <View><Text style= {styles.textStyle}>Test data Hitesh</Text></View>
+            <View>
+              <Text style= {styles.textStyle}>Test data Hitesh</Text>
+            </View>
 
           ) :null}
+
         </SafeAreaView>
       </ScrollView>
 
