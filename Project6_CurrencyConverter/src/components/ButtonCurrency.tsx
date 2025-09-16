@@ -3,7 +3,6 @@ import React, {JSX, PropsWithChildren} from "react"
 
 
 
-
 //TODO the below prop is created to ensure that whenever we use ButtonCurrency component, it should always use atleast name and flag strings
 type ButtonCurrencyProps = PropsWithChildren<{
     countryName: string;
@@ -31,12 +30,15 @@ const styles = StyleSheet.create(
             justifyContent:"center"
         },
         name:{
-            fontSize: 28,
+            fontSize: 15,
             color: "#cfh654",
+            alignItems:"center",
+            justifyContent:"center",
+            fontWeight:"bold",
             marginBottom: 4
         },
         flag:{
-            fontSize: 18,
+            fontSize: 12,
             color: "#ffffff",
 
         }
