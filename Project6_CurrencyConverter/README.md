@@ -12,7 +12,7 @@ Key Features & Learnings:
 
 🖼️ Declared a constant file to define the array list and passed it to the index.d.ts file.
 
-⚛️ Leveraged React Native components like PropsWithChildren, Pressable, View, Text, and applied styles with StyleSheet.Utilized React Native components such as PropswithChildren, Pressable, View, Text, and applied styling using StyleSheet
+⚛️ Leveraged React Native components like PropsWithChildren, Pressable, View, Text, and applied styles with StyleSheet.
 
 
 Here are some screenshots:
