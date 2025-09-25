@@ -1,4 +1,3 @@
-import { Pressable, Text, View } from "react-native"
 import type { PropsWithChildren } from "react"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import React from "react-native"
@@ -7,18 +6,7 @@ type IconProps = PropsWithChildren<{
     name: string;
 }>
 
-const IconC = (namimg: string) => {
-
-    switch (namimg) {
-        case "value":
-
-            break;
-
-        default:
-            break;
-    }
-}
-const IconF = ({ name }: IconProps) => {
+const IconsComp = ({ name }: IconProps) => {
     switch (name) {
         case "circle":
             return <Icon name="circle-thin" size={38} color="#F7CD2E" />
@@ -30,3 +18,5 @@ const IconF = ({ name }: IconProps) => {
             return <Icon name="pencil" size={38} color="#0D0D0D" />
     }
 }
+
+export default IconsComp
